@@ -1,8 +1,7 @@
 class CreateClothes < ActiveRecord::Migration[6.1]
   def change
     create_table :clothes do |t|
-      
-      t.integer :user_id, null: false
+
       t.integer :genre_id, null: false
       t.integer :bookmark_id, null: false
       t.integer :comment_id, null:false
@@ -12,7 +11,11 @@ class CreateClothes < ActiveRecord::Migration[6.1]
       t.string :making_time, null:false
       t.text :point, null:false
       t.boolean :is_active,null: false, default: true
-      t.boolean :is_active,null: false, default: true
+     # t.datetime :created_at, null: false
+      #t.datetime :updated_at, null:false
+
+
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
