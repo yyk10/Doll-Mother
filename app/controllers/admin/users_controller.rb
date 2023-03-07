@@ -3,8 +3,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
+   @users = User.page(params[:page])
+   @user = User.new
   end
 
-  def exit
+  def edit
+  end
+
+  private
+  def user_params
+  params.require(:user).permit(:email, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana, :address, :telephone_number, :is_deleted)
   end
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get '/about' =>'public/homes#about', as: 'about'
   
+  
   namespace :admin do
     root to: "homes#top"
   end
@@ -35,18 +36,38 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :types, only: [:index, :create, :edit, :update]
   end
+  #アドミンの
+  #検索用
+  #問合せ用
   
   namespace :public do
-    
-    get 'comments/post'
-    get 'comments/new'
+    resources :comments, only: [:post, :new]
+    #get 'comments/post'
+    #get 'comments/new'
   end
   namespace :public do
-    get 'clothes/index'
-    get 'clothes/show'
-    get 'clothes/new'
-    get 'clothes/exit'
-    get 'clothes/destroy'
+    resources :clothes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+     resources :bookmarks, only: [:create, :destroy]
+       #collection do
+        get :bookmarks
+       #end
+    #get 'clothes/index'
+    #get 'clothes/show'
+    #get 'clothes/new'
+    #get 'clothes/edit'
+    #get 'clothes/destroy'
   end
-
+  
+  namespace :public do
+   resources :users, only:[:index, :show, :edit, :update]
+  end
+  
+  namespace :public do
+    resources :inquiries, only:[:new, :create]
+  end
+  
+  
+  
+  
+  
 end

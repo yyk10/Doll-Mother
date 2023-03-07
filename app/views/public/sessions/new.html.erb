@@ -1,3 +1,85 @@
+<div class="container">
+   <div class="row">
+   <div class style="padding: 50px;">
+      <h3 class="border bg-light">
+        <div class="mx-3">ログイン</h3></div>
+ 　　</div>
+   </div>
+</div>
+<div class="container">
+<div class="row">
+    <div class="offset-mx-2">
+
+
+    </div>
+ </div>
+ </div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="offset-md-3">
+<div class style="padding: 15px;">
+
+   <div class="row">
+
+      <div class="col-md-2">
+        <%= f.label :メールアドレス ,class: 'control-label'%>
+      </div>
+      <div class="col-md-7">
+       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+   </div>
+  </div>
+<div class style="padding: 15px;">
+   <div class="row">
+
+      <div class="col-md-2">
+        <%= f.label :パスワード,class: 'control-label' %></div>
+      <div class="col-md-7">
+        <%= f.password_field :password, autocomplete: "current-password" ,class: 'form-control'%></div>
+        <div class="actions">
+       <%= f.submit "ログイン" %>
+       </div>
+   <% end %>
+   </div>
+
+ </div>
+</diV>
+ </div>
+
+  <!--% if devise_mapping.rememberable? %>
+    <div class="field">
+      < %= f.check_box :remember_me %>
+      < %= f.label :remember_me %>
+    </div>
+  < % end %-->
+  <div class="offset-lg-5">
+<div class style="padding: 15px;">
+<div class="row">
+
+  <div class="actions">
+  
+  </div>
+
+
+ </div>
+  </div>
+  </div>
+ <div class="container">
+<div class="row">
+    <div class="offset-mx-2">
+
+<h5 class="border bg-light">
+     <div class="mx-3">会員登録がお済みでない方</h5></div>
+</div>
+<div class="col-md-5">
+    <div class style="padding: 10px;">
+<div class="text-center">
+<p><%=link_to"こちら", new_user_registration_path %>から新規登録してください</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
