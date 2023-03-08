@@ -1,0 +1,20 @@
+<h1>マイページ</h1>
+
+<p>
+  <%= link_to "会員情報",public_user_path(current_user.id)  %>
+</p>
+<p>
+  <%=link_to "ブックマーク一覧", public_bookmarks_path %>
+</p>
+
+<p>
+  <%=link_to "投稿履歴", public_clothes_path %>
+</p>
+<!--問合せのフォームの記載-->
+<p>
+  <%=link_to "問い合わせ", public_clothes_path %>
+</p>
+<!--退会画面に遷都-->
+<p>
+  <%=link_to "退会する", public_clothes_path %>
+</p>

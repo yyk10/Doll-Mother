@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+
   root to: "public/homes#top"
   get '/about' =>'public/homes#about', as: 'about'
-  
-  
+
+
   namespace :admin do
     root to: "homes#top"
   end
@@ -24,22 +24,22 @@ Rails.application.routes.draw do
     #get 'clothes/show'
     #get 'clothes/index'
   end
-  
+
   namespace :admin do
     resources :users, only:[:index, :show, :edit, :update]
   end
-  
+
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
   end
-  
+
   namespace :admin do
     resources :types, only: [:index, :create, :edit, :update]
   end
   #アドミンの
   #検索用
   #問合せ用
-  
+
   namespace :public do
     resources :comments, only: [:post, :new]
     #get 'comments/post'
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   end
   namespace :public do
     resources :clothes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-     resources :bookmarks, only: [:create, :destroy]
+     resources :bookmarks, only: [:create, :destroy, :index]
        #collection do
         get :bookmarks
        #end
@@ -57,17 +57,17 @@ Rails.application.routes.draw do
     #get 'clothes/edit'
     #get 'clothes/destroy'
   end
-  
+
   namespace :public do
    resources :users, only:[:index, :show, :edit, :update]
   end
-  
+
   namespace :public do
     resources :inquiries, only:[:new, :create]
   end
-  
-  
-  
-  
-  
+
+
+
+
+
 end
