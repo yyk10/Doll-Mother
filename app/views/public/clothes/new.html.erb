@@ -1,2 +1,14 @@
-<h1>Public::Clothes#new</h1>
-<p>Find me in app/views/public/clothes/new.html.erb</p>
+<h1>お洋服を投稿する</h1>
+
+<%= form_with model: [:public, @clothe], local: true do |f| %>
+
+<h3>New book</h3>
+
+    <h4>title</h4>
+      <%= f.text_field :name, autofocus: true %>
+    <h4>Opinion</h4>
+      <%#= f.text_area : %>
+
+    <div><%= f.submit '投稿する', class: "btn btn-success" %></div>
+
+<% end %>

@@ -1,2 +1,70 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container">
+   <div class="row">
+   <div class style="padding: 50px;">
+      <h3 class="border bg-light">
+        <div class="mx-3"><%= (@user.last_name + @user.first_name) %>さんの会員詳細</h3></div>
+
+   </div>
+   </div>
+ </div>
+ <div class="container">
+   <div class="row">
+       <%= image_tag @user.image.variant(resize: '100x100'), class: 'user-image' if @user.image.attached? %>
+  </div>
+</div>
+
+ <div class="container">
+   <div class="row">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+     <th>氏名</th>
+     <td><%= @user.last_name %> <%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td><%= @user.last_name_kana %> <%= @user.first_name_kana %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td>
+      <%= @user.address %>
+      </td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td>
+      <%= @user.telephone_number %>
+      </td>
+    </tr>
+     <tr>
+      <th>メールアドレス</th>
+      <td>
+      <%= @user.email %>
+      </td>
+    </tr>
+     <tr>
+      <th>会員ステータス</th>
+      <td>
+       <% if @user.is_deleted %>
+        退会
+      <% else %>
+        有効
+      <% end %>
+      </td>
+    </tr>
+  </thead>
+
+
+</table>
+ <%= link_to "編集する", edit_admin_user_path(@user.id) ,class: "btn btn-success" %>
+
+ <!--%= link_to "注文履歴一覧を見る",admin_root_path, class: "btn btn-primary" %-->
+</div>
+</div>
+

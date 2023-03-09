@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get '/about' =>'public/homes#about', as: 'about'
 
-
   namespace :admin do
     root to: "homes#top"
   end
@@ -27,6 +26,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only:[:index, :show, :edit, :update]
+
+
   end
 
   namespace :admin do
@@ -60,6 +61,7 @@ Rails.application.routes.draw do
 
   namespace :public do
    resources :users, only:[:index, :show, :edit, :update]
+   get 'users/list' => "uses#list"
   end
 
   namespace :public do
