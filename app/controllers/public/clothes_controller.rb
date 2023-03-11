@@ -8,7 +8,7 @@ class Public::ClothesController < ApplicationController
   def new
    @clothe = Clothe.new
   end
-  
+
   def create
     @clothe = Clothe.new(clothe_params)
     @clothe.user_id = current_user.id
@@ -19,21 +19,21 @@ class Public::ClothesController < ApplicationController
    else
       @clothes = Clothe.all
       render :index
-  
+
    end
   end
 
   def edit
   end
-  
+
   def update
   end
 
   def destroy
   end
-  
+
   private
-  
+
   def clothe_params
   params.require(:clote).permit(:name, :introduction, :making_time, :point, :image)
   end

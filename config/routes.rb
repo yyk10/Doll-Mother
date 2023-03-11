@@ -31,11 +31,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
 
   namespace :admin do
-    resources :types, only: [:index, :create, :edit, :update]
+    resources :types, only: [:create, :edit, :update, :destroy]
   end
   #アドミンの
   #検索用

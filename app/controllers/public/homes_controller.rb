@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
-  
-def top
+
+def topå
   @users = User.all #部分テンプレートで_index.htmlを表示させる為の定義
 end
 

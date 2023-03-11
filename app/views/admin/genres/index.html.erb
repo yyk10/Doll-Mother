@@ -1,0 +1,93 @@
+<div class="container">
+   <div class="row">
+    <div class style="padding: 50px;">
+
+        <h3 class="border bg-light">ジャンル一覧・追加</h3>
+    </div>
+   </div>
+ </div>
+
+ <div class="container">
+   <div class="row">
+       <div class="text-left">
+     <%= form_with model: [:admin, @genre], local: true do |f| %>
+
+    <%= f.label :ジャンル名 %>
+    <%= f.text_field :name, autofocus: true ,placeholder:"ジャンル名" %>
+
+    <%= f.submit "新規登録",class: "btn btn-success" %>
+    <% end %>
+     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+       <div class="col-md-8">
+     <table class="table">
+  　　　<thead>
+    <tr>
+       <th scope="col">ジャンル</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @genres.each do |genre| %>
+    <tr>
+     <td><%= genre.name %></td>
+
+      <td>
+        <%= link_to "編集する", edit_admin_genre_path(genre.id),class: "btn btn-success" %>
+        <%= link_to "削除する",admin_genre_path(genre.id),method: :delete ,class: "btn btn-success" %>
+      </td>
+     <% end %>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div class="container">
+   <div class="row">
+    <div class style="padding: 50px;">
+
+        <h3 class="border bg-light">ジャンル一覧・追加</h3>
+    </div>
+   </div>
+ </div>
+
+ <div class="container">
+   <div class="row">
+       <div class="text-left">
+     <%= form_with model: [:admin ,@type], url: admin_genres_path, local: true do |f| %>
+
+    <%= f.label :洋服の種類 %>
+    <%= f.text_field :name, autofocus: true ,placeholder:"洋服の種類" %>
+
+    <%= f.submit "新規登録",class: "btn btn-success" %>
+    <% end %>
+     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+       <div class="col-md-8">
+     <table class="table">
+  　　　<thead>
+    <tr>
+       <th scope="col">洋服の種類</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @types.each do |type| %>
+    <tr>
+     <td><%= genre.name %></td>
+
+      <td>
+        <%= link_to "編集する", edit_admin_type_path(:id),class: "btn btn-success" %>
+        <%= link_to "削除する", admin_genre_path(genre.id), method: :delete, class: "btn btn-success" %>
+      </td>
+     <% end %>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>

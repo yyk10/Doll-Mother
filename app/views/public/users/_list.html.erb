@@ -1,6 +1,12 @@
+ <% if user_signed_in? %>
+
 <h1>プロフィール写真</h1>
 <p>名前</p>
+
 <p><%= link_to "投稿する",new_public_clothe_path %></p>
 <p>投稿一覧</p>
 <p>ブックマーク</p>
+
 <p>検索</p>
+
+<% end %>
