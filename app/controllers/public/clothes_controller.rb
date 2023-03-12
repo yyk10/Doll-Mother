@@ -24,17 +24,24 @@ class Public::ClothesController < ApplicationController
   end
 
   def edit
+      @clothe = Clothe.find(params[:id])
   end
 
   def update
+   @clothe = clothe.find(params[:id])
+   @clothe.update (clothe_params)
+   redirect_to public_clothe_path(@clothe.id), notice: '投稿に成功しました。'
   end
 
   def destroy
+   @clothe = Clothe.find(params[:id])
+   @clothe.destroy
+   redirect_to public_clothes_path, notice: 'Type information destroy successfully'
   end
 
   private
 
   def clothe_params
-  params.require(:clote).permit(:name, :introduction, :making_time, :point, :image)
+  params.require(:clothe).permit(:name, :introduction, :making_time, :point, :image, :short_text, :genre_id, :bookmark_id, :comment_id, :type_id)
   end
 end

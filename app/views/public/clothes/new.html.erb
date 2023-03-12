@@ -2,13 +2,20 @@
 
 <%= form_with model: [:public, @clothe], local: true do |f| %>
 
-<h3>New book</h3>
+<h3></h3>
 
-    <h4>title</h4>
-      <%= f.text_field :name, autofocus: true %>
-    <h4>Opinion</h4>
+    <h4>題名
+      <%= f.text_field :name, autofocus: true,　placeholder: "題名" %></h4>
+<h3>動画or写真</h3>
+<h3>サイズ</h3>
       <%#= f.text_area : %>
 
-    <div><%= f.submit '投稿する', class: "btn btn-success" %></div>
 
+<h3>所要時間</h3>
+<h3>ジャンル</h3>
+<h3>簡単な説明</h3>
+
+<h3>作り方の説明</h3>
+<h3>その他</h3>
+<div><%= f.submit '投稿する', class: "btn btn-success" %></div>
 <% end %>

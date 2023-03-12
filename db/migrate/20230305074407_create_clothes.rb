@@ -7,6 +7,7 @@ class CreateClothes < ActiveRecord::Migration[6.1]
       t.integer :comment_id, null:false
       t.integer :type_id, null: false
       t.string :name, null: false
+      t.text :short_text, null: false
       t.text :introduction, null: false
       t.string :making_time, null:false
       t.text :point, null:false

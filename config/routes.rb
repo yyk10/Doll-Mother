@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :types, only: [:create, :edit, :update, :destroy]
+    resources :types, only: [:create, :edit, :update, :destroy, :index]
   end
   #アドミンの
   #検索用
