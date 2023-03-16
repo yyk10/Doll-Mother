@@ -7,6 +7,9 @@ class Public::ClothesController < ApplicationController
 
   def new
    @clothe = Clothe.new
+   #親モデル.子モデル.buildで子モデルのインスタンス作成
+   @materials = @clothe.materials.build
+   @procedures = @clothe.procedures.build 
   end
 
   def create
@@ -42,6 +45,16 @@ class Public::ClothesController < ApplicationController
   private
 
   def clothe_params
-  params.require(:clothe).permit(:name, :introduction, :making_time, :point, :image, :short_text, :genre_id, :bookmark_id, :comment_id, :type_id)
+  params.require(:clothe).permit(
+      :name, 
+      :making_time, 
+      :point, :image, 
+      :short_text, 
+      :genre_id, 
+      :bookmark_id, 
+      :comment_id, 
+      :type_id,
+      material_attributes: [:name, :_destroy],
+      procedures_attributes: [:body, :image, :_destroy])
   end
 end

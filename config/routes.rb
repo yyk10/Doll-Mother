@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   # 顧客用
 # URL /users/sign_in ...
   devise_for :users, controllers: {
@@ -40,7 +41,29 @@ Rails.application.routes.draw do
   #アドミンの
   #検索用
   #問合せ用
+  namespace :admin do
+    get 'procedures/edit'
+    get 'procedures/create'
+    get 'procedures/update'
+  end
+  
+  namespace :admin do
+    get 'materials/edit'
+    get 'materials/create'
+    get 'materials/update'
+  end
+  
+  namespace :public do
+    get 'procedures/post'
+    get 'procedures/create'
+    get 'procedures/edit'
+  end
 
+  namespace :public do
+    get 'materials/post'
+    get 'materials/create'
+    get 'materials/edit'
+  end
   namespace :public do
     resources :comments, only: [:post, :new]
     #get 'comments/post'

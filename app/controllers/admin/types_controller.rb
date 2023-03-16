@@ -3,7 +3,7 @@ def index
    @types = Type.all.order("created_at DESC")
    @type = Type.new
 end
- 
+
 def edit
    @type = Type.find(params[:id])
 end

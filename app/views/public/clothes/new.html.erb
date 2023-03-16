@@ -6,16 +6,38 @@
 
     <h4>題名
       <%= f.text_field :name, autofocus: true,　placeholder: "題名" %></h4>
-<h3>動画or写真</h3>
-<h3>サイズ</h3>
-      <%#= f.text_area : %>
+<h3>動画or写真
+<%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*" %></h3>
+<h3>サイズ
+     <%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] },{prompt: "--選択してください--"} %></h3>
 
 
-<h3>所要時間</h3>
-<h3>ジャンル</h3>
-<h3>簡単な説明</h3>
+<h3>所要時間
+  <%= f.text_field :making_time, autofocus: true %>分</h3>
 
-<h3>作り方の説明</h3>
-<h3>その他</h3>
+<h3>ジャンル
+
+</h3>
+<h3>簡単な説明
+<%= f.text_area :short_text, autofocus: true %></h3>
+<h3>材料
+ <%= f.fields_for :materials do |material| %>
+<%= material.text_field :name, placeholder: "例)ハサミ" %>
+<input type="button" value="削除" onclick="deleteRow(this)">
+ <input type="button" value="材料を追加" onclick="addRow('material-table')" >
+ <% end %>
+</h3>
+<h3>作り方の説明
+<%= f.fields_for :procedures do |procedure| %>
+<%= procedure.text_area :body, placeholder: "例)○○を何センチに切ります" %>
+<%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*" %>
+<input type="button" value="削除" onclick="deleteRow(this)">
+ <input type="button" value="説明を追加" onclick="addRow('material-table')" >
+ <% end %>
+
+</h3>
+<h3>その他
+<%= f.text_area :point, autofocus: true %>
+</h3>
 <div><%= f.submit '投稿する', class: "btn btn-success" %></div>
 <% end %>
