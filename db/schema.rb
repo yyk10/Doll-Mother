@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 2023_03_16_121654) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "type_id", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -104,17 +103,19 @@ ActiveRecord::Schema.define(version: 2023_03_16_121654) do
   end
 
   create_table "materials", force: :cascade do |t|
+    t.integer "clothe_id"
     t.string "name", null: false
-    t.integer "clothe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["clothe_id"], name: "index_materials_on_clothe_id"
   end
 
   create_table "procedures", force: :cascade do |t|
+    t.integer "clothe_id"
     t.text "body", null: false
-    t.integer "clothe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["clothe_id"], name: "index_procedures_on_clothe_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -149,4 +150,6 @@ ActiveRecord::Schema.define(version: 2023_03_16_121654) do
   add_foreign_key "clothes", "users"
   add_foreign_key "comments", "clothes"
   add_foreign_key "comments", "users"
+  add_foreign_key "materials", "clothes"
+  add_foreign_key "procedures", "clothes"
 end

@@ -9,8 +9,8 @@ class Clothe < ApplicationRecord
   has_many :materials, dependent: :destroy
 
   #関連付けしたモデルを一緒にデータ保存できるようにする
-accepts_nested_attributes_for :procedures, allow_destroy: true
-accepts_nested_attributes_for :materials, allow_destroy: true
+accepts_nested_attributes_for :procedures, :materials, allow_destroy: true
+
 
 
  validates :name, presence: true, length: { maximum: 255 }
@@ -19,6 +19,6 @@ accepts_nested_attributes_for :materials, allow_destroy: true
  validates :point, presence: true, length: { maximum: 65_535 }
 
  has_one_attached :image #ここはファイル名記載
- accepts_nested_attributes_for :materials, :procedures, allow_destroy: true
+
 
 end

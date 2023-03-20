@@ -16,23 +16,43 @@
   <%= f.text_field :making_time, autofocus: true %>分</h3>
 
 <h3>ジャンル
-
+<%- Type.all.each do |type| %>
+	<label><%= radio_button_tag(:name, type.id) %><%= type.name %></label>
+<%- end %>
 </h3>
+
 <h3>簡単な説明
 <%= f.text_area :short_text, autofocus: true %></h3>
+
 <h3>材料
- <%= f.fields_for :materials do |material| %>
-<%= material.text_field :name, placeholder: "例)ハサミ" %>
+
+  <%= f.fields_for :materials do |t| %>
+          <%= render "public/clothes/material_fields", f: t %>
+        <% end %>
+      </div>
+
+      <div id="detail-association-insertion-point"></div>
+
+      <div class="col-10 mx-auto mt-2">
+        <%= link_to_add_association "+フォームを追加", f, :materials,
+        class: "btn btn-secondary btn-block",
+        data: {
+        association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'after'
+        }%>
+ <!--%= f.fields_for :materials do |material| %>
+< %= material.text_field :name, placeholder: "例)ハサミ" %>
 <input type="button" value="削除" onclick="deleteRow(this)">
  <input type="button" value="材料を追加" onclick="addRow('material-table')" >
- <% end %>
-</h3>
+ < % end %>
+</h3-->
+
 <h3>作り方の説明
 <%= f.fields_for :procedures do |procedure| %>
 <%= procedure.text_area :body, placeholder: "例)○○を何センチに切ります" %>
 <%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*" %>
 <input type="button" value="削除" onclick="deleteRow(this)">
- <input type="button" value="説明を追加" onclick="addRow('material-table')" >
+ <input type="button" value="説明を追加" onclick="addRow('procedure-table')" >
  <% end %>
 
 </h3>

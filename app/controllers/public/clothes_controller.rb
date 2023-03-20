@@ -1,8 +1,12 @@
 class Public::ClothesController < ApplicationController
   def index
+    @clothe = Clothe.new
+    @clothes = Clothe.all
   end
 
   def show
+      @clothe = Clothe.find(params[:id])
+      @user = current_user
   end
 
   def new
@@ -54,7 +58,7 @@ class Public::ClothesController < ApplicationController
       :bookmark_id, 
       :comment_id, 
       :type_id,
-      material_attributes: [:name, :_destroy],
-      procedures_attributes: [:body, :image, :_destroy])
+      materials_attributes: [:id, :name, :_destroy],
+      procedures_attributes: [:id, :body, :image, :_destroy])
   end
 end

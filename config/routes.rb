@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   #検索用
   #問合せ用
   namespace :admin do
+    
     get 'procedures/edit'
     get 'procedures/create'
     get 'procedures/update'
