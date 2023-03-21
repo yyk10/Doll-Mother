@@ -5,10 +5,14 @@ class Public::MaterialsController < ApplicationController
   def create
      @material = Meterials.new(material_params)
    if @material.save!
-   redirect_to public_clothe_path
+   redirect_to new_public_clothe_path
+   end
   end
 
   def edit
+  end
+  
+  def destroy
   end
   
   private

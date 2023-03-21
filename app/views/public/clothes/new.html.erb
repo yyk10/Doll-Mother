@@ -26,7 +26,7 @@
 
 <h3>材料
 
-  <%= f.fields_for :materials do |t| %>
+  <%= f.fields_for :material ,url: new_public_clothe_path do |t| %>
           <%= render "public/clothes/material_fields", f: t %>
         <% end %>
       </div>
@@ -34,11 +34,11 @@
       <div id="detail-association-insertion-point"></div>
 
       <div class="col-10 mx-auto mt-2">
-        <%= link_to_add_association "+フォームを追加", f, :materials,
+        <%= link_to_add_association "+フォームを追加",  f, :materials,
         class: "btn btn-secondary btn-block",
         data: {
-        association_insertion_node: '#detail-association-insertion-point',
-        association_insertion_method: 'after'
+        association_insertion_node: 'detail-association-insertion-point',
+        association_insertion_method: 'before'
         }%>
  <!--%= f.fields_for :materials do |material| %>
 < %= material.text_field :name, placeholder: "例)ハサミ" %>

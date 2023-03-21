@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
      resources :clothes, only: [:index, :show, :edit, :create, :update, :destroy]
+    
     #get 'clothes/show'
     #get 'clothes/index'
   end
@@ -54,17 +55,17 @@ Rails.application.routes.draw do
     get 'materials/update'
   end
   
-  namespace :public do
-    get 'procedures/post'
-    get 'procedures/create'
-    get 'procedures/edit'
-  end
+  #namespace :public do
+    #get 'procedures/post'
+    #get 'procedures/create'
+    #get 'procedures/edit'
+  #end
 
-  namespace :public do
-    get 'materials/post'
-    get 'materials/create'
-    get 'materials/edit'
-  end
+  #namespace :public do
+   # get 'materials/post'
+    #get 'materials/create'
+    #get 'materials/edit'
+  #end
   namespace :public do
     resources :comments, only: [:post, :new]
     #get 'comments/post'
@@ -73,6 +74,8 @@ Rails.application.routes.draw do
   namespace :public do
     resources :clothes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
      resources :bookmarks, only: [:create, :destroy, :index]
+     resources :materials, only: [:create, :destroy, :update, :post]
+     resources :procedure, omly: [:create, :destroy, :update, :post]
        #collection do
         get :bookmarks
        #end

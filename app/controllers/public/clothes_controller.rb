@@ -58,7 +58,7 @@ class Public::ClothesController < ApplicationController
       :bookmark_id, 
       :comment_id, 
       :type_id,
-      materials_attributes: [:id, :name, :_destroy],
-      procedures_attributes: [:id, :body, :image, :_destroy])
+      materials_attributes: [:name, :_destroy],
+      procedures_attributes: [:body, :image, :_destroy])
   end
 end
